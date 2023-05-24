@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react';
 import { VideoDataContext } from '../store/Store';
-const PaginationDisplay = () => {
+const PaginationDisplay = ({ val = 0 }) => {
   const { pageIncrement, pageDecrement, page, setPage } =
     useContext(VideoDataContext);
   useEffect(() => {
-    setPage(0);
+    setPage(val);
   }, []);
   return (
     <div className="text-white w-[90vw] text-3xl font-semibold text-center pb-5 mx-auto ">

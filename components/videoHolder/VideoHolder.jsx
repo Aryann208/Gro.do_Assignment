@@ -9,6 +9,7 @@ const fallbackCreatorImg =
   'https://cdn.gro.care/fd3657a21d21_1683505781883.webp';
 const VideoHolder = ({
   id = 1,
+  page = 0,
   poster = fallbackImg,
   title = 'Video title unavailable',
   reactionCount = 0,
@@ -18,7 +19,7 @@ const VideoHolder = ({
   description = fallback_desc,
 }) => {
   return (
-    <Link href={`/${id}`}>
+    <Link href={`/${id}+${page}`}>
       <div className=" carousel flex  content-between items-center mx-auto my-[1em]  w-[90vw] rounded-2xl h-[26em] text-black font-[calibri]  bg-white ">
         <div className=" vid-image px-[1em]">
           <img

@@ -1,7 +1,7 @@
 'use client';
 'use client';
 import { VideoDataContext } from '@/components/store/Store';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 import { usePathname } from 'next/navigation';
@@ -9,13 +9,20 @@ import Navigation from '../navigation/Navigation';
 
 const VideoMain = () => {
   const [url, setUrl] = useState(null);
-  const { data, setData } = useContext(VideoDataContext);
-  const videoData = data?.posts;
+  const { data, page, setPage } = useContext(VideoDataContext);
+  const pageNum = data?.data?.page;
   const pathname = usePathname();
-  const id = pathname.slice(1);
+  const fixedPage = pathname.slice(-1);
+  useEffect(() => {
+    setPage(fixedPage);
+  });
+  const videoData = data?.data?.posts;
+
+  const id = pathname.slice(1, -2);
   const keyMatching = (id) => {
     const filtered = [];
     videoData?.map((d) => {
+      console.log(d);
       if (d?.postId == id) {
         filtered.push(d);
       }
@@ -25,7 +32,8 @@ const VideoMain = () => {
   };
 
   const i = keyMatching(id);
-
+  console.log(i);
+  console.log('mesg' + pageNum);
   const mediaUrl = i[0]?.submission?.mediaUrl;
 
   const creatorName = i[0]?.creator?.name;
@@ -42,6 +50,7 @@ const VideoMain = () => {
     'Video Title',
     'Video Description',
   ];
+
   return (
     <>
       <Navigation />

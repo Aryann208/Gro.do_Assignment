@@ -1,17 +1,7 @@
 'use client';
 import { createContext, useState, useEffect } from 'react';
 import { fetchVideoPagination } from '@/public/Api';
-const url = `https://internship-service.onrender.com/videos?page=0`;
-// const fetchVideoPagination = async () => {
-//   try {
-//     const response = await fetch(url)
-//       .then((response) => response.json())
-//       .then((response) => response.data);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+
 export const VideoDataContext = createContext({
   data: null,
   setData: () => null,
@@ -27,9 +17,6 @@ export const VideoDataProvider = ({ children }) => {
   const [page, setPage] = useState(0);
   const pageDecrement = () => {
     setPage(page - 1);
-    if (data?.posts?.length == 0) {
-      setPage(page + 1);
-    }
   };
   const pageIncrement = () => {
     setPage(page + 1);

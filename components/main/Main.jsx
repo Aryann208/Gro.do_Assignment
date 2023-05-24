@@ -1,19 +1,21 @@
 'use client';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import VideoHolder from '../videoHolder/VideoHolder';
 import PaginationDisplay from '../paginationDisplay/PaginationDisplay';
 import { VideoDataContext } from '../store/Store';
 const Main = () => {
-  const { data } = useContext(VideoDataContext);
+  const { data, page } = useContext(VideoDataContext);
 
-  const videoData = data.posts;
-
+  const videoData = data?.data?.posts;
+  const fixedPage = data?.data?.page;
+  console.log(fixedPage);
   return (
     <div className="h-[100%] w-[100vw] bg-[#50C878]">
       <div className="px-[1em] py-[1em]">
         {videoData?.map((i) => (
           <VideoHolder
             key={i['postId']}
+            page={fixedPage}
             id={i['postId']}
             creatorName={i['creator']?.name}
             creatorHandle={i['creator']?.handle}
@@ -26,7 +28,7 @@ const Main = () => {
         ))}
       </div>
 
-      <PaginationDisplay />
+      <PaginationDisplay val={fixedPage} />
     </div>
   );
 };
