@@ -53,7 +53,7 @@ const VideoMain = () => {
     <>
       <Navigation />
       <div className="flex flex-col sm-w-[100vw] sm-h-[80vh] md-w-[100vw] md-h-[80vh]  lg-w-[100vw] lg-h-[80vh]  items-center  bg-green-400 ">
-        <div className=" mx-auto flex justify-between items-center rounded-xl sm-w-[100vw] sm-h-[100vh] md-w-[100vw] md-h-[90vh] lg-w-[30vw] lg-h-[100vh]">
+        <div className=" my-10 mx-auto flex justify-between items-center rounded-xl sm-w-[100vw] sm-h-[100vh] md-w-[100vw] md-h-[90vh] lg-w-[30vw] lg-h-[100vh] bg-slate-200">
           <ReactPlayer
             url={mediaUrl}
             width="90vw"

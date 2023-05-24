@@ -5,12 +5,15 @@ import PaginationDisplay from '../paginationDisplay/PaginationDisplay';
 import { VideoDataContext } from '../store/Store';
 const Main = () => {
   const { data, page } = useContext(VideoDataContext);
-
+  const [loading, setLoading] = useState(true);
   const videoData = data?.data?.posts;
   const fixedPage = data?.data?.page;
+  const loadingFalse = () => {
+    setLoading(false);
+  };
 
   return (
-    <div className="h-[100%] w-[100vw] bg-[#50C878]">
+    <div className="h-[100%] min-h-[100vh] w-[100vw] bg-[#50C878]">
       <div className="px-[1em] py-[1em]">
         {videoData?.map((i) => (
           <VideoHolder
