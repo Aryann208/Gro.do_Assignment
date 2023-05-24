@@ -10,7 +10,7 @@ const PaginationDisplay = ({ val = 0 }) => {
     <div className="text-white w-[90vw] text-3xl font-semibold text-center pb-5 mx-auto ">
       <button onClick={pageDecrement}>{page > 0 && <span>prev -</span>}</button>
 
-      <span className=" text-black rounded-full px-2 py-2 mx-2 bg-slate-200">
+      <span className=" text-black rounded-full px-3 py-2 mx-2 bg-slate-200">
         {page}
       </span>
 

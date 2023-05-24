@@ -14,7 +14,7 @@ const Main = () => {
 
   return (
     <div className="h-[100%] min-h-[100vh] w-[100vw] bg-[#50C878]">
-      <div className="px-[1em] py-[1em]">
+      <div className="flex flex-col justify-content w-[90vw] mx-auto px-[1em] py-[1em]">
         {videoData?.map((i) => (
           <VideoHolder
             key={i['postId']}

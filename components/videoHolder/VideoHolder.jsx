@@ -20,7 +20,7 @@ const VideoHolder = ({
 }) => {
   return (
     <Link href={`/${id}+${page}`}>
-      <div className=" carousel flex  content-between items-center mx-auto my-[1em]  w-[90vw] rounded-2xl h-[26em] text-black font-[calibri]  bg-white ">
+      <div className=" carousel flex  content-between items-center justify-content my-[1em]  w-[90vw] rounded-2xl h-[26em] text-black font-[calibri]  bg-white ">
         <div className=" vid-image px-[1em]">
           <img
             src={poster}
