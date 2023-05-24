@@ -8,7 +8,7 @@ const Main = () => {
 
   const videoData = data?.data?.posts;
   const fixedPage = data?.data?.page;
-  console.log(fixedPage);
+
   return (
     <div className="h-[100%] w-[100vw] bg-[#50C878]">
       <div className="px-[1em] py-[1em]">

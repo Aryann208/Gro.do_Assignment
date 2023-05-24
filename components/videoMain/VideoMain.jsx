@@ -22,7 +22,6 @@ const VideoMain = () => {
   const keyMatching = (id) => {
     const filtered = [];
     videoData?.map((d) => {
-      console.log(d);
       if (d?.postId == id) {
         filtered.push(d);
       }
@@ -32,8 +31,7 @@ const VideoMain = () => {
   };
 
   const i = keyMatching(id);
-  console.log(i);
-  console.log('mesg' + pageNum);
+
   const mediaUrl = i[0]?.submission?.mediaUrl;
 
   const creatorName = i[0]?.creator?.name;
